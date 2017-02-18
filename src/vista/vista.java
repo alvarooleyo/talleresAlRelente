@@ -108,17 +108,22 @@ public class vista extends javax.swing.JFrame {
         frameAñadirReparacion = new javax.swing.JFrame();
         jPanel12 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tablaCoche = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        txtIdCoche = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboBuscar = new javax.swing.JComboBox<>();
         txtBuscarReparacion1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnBuscarCliente = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tablaClientesReparaciones = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
-        txtIdEmpleadoNuevaReparacion = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnComenzarReparacion = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
+        comboEmpleado = new javax.swing.JComboBox<>();
         btnEmpleado = new javax.swing.JButton();
         btnAdmin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -660,7 +665,7 @@ public class vista extends javax.swing.JFrame {
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Coche"));
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCoche.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -671,30 +676,52 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane6.setViewportView(jTable5);
+        tablaCoche.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaCocheMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tablaCoche);
+
+        jLabel25.setText("Id del coche seleccionado: ");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addComponent(txtIdCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 112, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(txtIdCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cliente"));
 
         jLabel23.setText("Buscar por: ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "NOMBRE", "APELLIDOS", "TELEFONO", " " }));
 
-        jButton2.setText("Buscar");
+        btnBuscarCliente.setText("Buscar");
+        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteActionPerformed(evt);
+            }
+        });
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        tablaClientesReparaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -705,7 +732,12 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane7.setViewportView(jTable6);
+        tablaClientesReparaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaClientesReparacionesMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(tablaClientesReparaciones);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -715,11 +747,11 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtBuscarReparacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnBuscarCliente)
                 .addContainerGap(301, Short.MAX_VALUE))
             .addComponent(jScrollPane7)
         );
@@ -729,17 +761,28 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBuscarReparacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(btnBuscarCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel22.setText("Id empleado encargado: ");
 
-        jButton1.setText("Comenzar Reparacion");
+        btnComenzarReparacion.setText("Comenzar Reparacion");
+        btnComenzarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComenzarReparacionActionPerformed(evt);
+            }
+        });
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setRows(5);
+        jScrollPane3.setViewportView(txtDescripcion);
+
+        jLabel26.setText("describa brevemente la reparacion: ");
 
         javax.swing.GroupLayout frameAñadirReparacionLayout = new javax.swing.GroupLayout(frameAñadirReparacion.getContentPane());
         frameAñadirReparacion.getContentPane().setLayout(frameAñadirReparacionLayout);
@@ -748,29 +791,39 @@ public class vista extends javax.swing.JFrame {
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(frameAñadirReparacionLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel22)
-                .addGap(18, 18, 18)
-                .addComponent(txtIdEmpleadoNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(frameAñadirReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(frameAñadirReparacionLayout.createSequentialGroup()
+                        .addGap(316, 316, 316)
+                        .addComponent(btnComenzarReparacion))
+                    .addGroup(frameAñadirReparacionLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frameAñadirReparacionLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frameAñadirReparacionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(306, 306, 306))
         );
         frameAñadirReparacionLayout.setVerticalGroup(
             frameAñadirReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(frameAñadirReparacionLayout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(38, 38, 38)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(frameAñadirReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(txtIdEmpleadoNuevaReparacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49))
+                    .addComponent(comboEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(frameAñadirReparacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(btnComenzarReparacion)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -894,9 +947,81 @@ public class vista extends javax.swing.JFrame {
         this.frameAñadirReparacion.setVisible(true);
         this.frameAñadirReparacion.setSize(800, 600);
         this.frameAñadirReparacion.setLocationRelativeTo(null);
+        
+        this.tablaClientesReparaciones.setModel(this.fachada.getTablaCliente());
 
 
     }//GEN-LAST:event_btnNuevaReparacionActionPerformed
+
+    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
+        
+        String buscar, texto;
+        int id;
+        
+        
+        
+        buscar = (String) comboBuscar.getSelectedItem();
+        
+        texto = this.txtBuscarReparacion1.getText();
+       
+        //id = Integer.parseInt(this.fachada.buscarcliente(buscar, texto));
+        
+        this.tablaClientesReparaciones.setModel(this.fachada.getTablaClienteConId(buscar, texto));
+        
+        //System.out.println("La id del cliente a buscar es "+id);
+        
+        //this.tablaCoche.setModel(this.fachada.getTablaCoche(id));
+        
+        
+        
+        
+    }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void tablaClientesReparacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesReparacionesMouseClicked
+     
+        int fila;
+        
+        fila = this.tablaClientesReparaciones.rowAtPoint(evt.getPoint());
+                           
+                int id = Integer.parseInt(String.valueOf( this.tablaClientesReparaciones.getValueAt(fila, 0) ));
+                System.out.println("El id de la tabla clientes reparaciones es "+id);
+            
+               
+     this.tablaCoche.setModel(this.fachada.getTablaCoche(id));
+     
+     this.comboEmpleado.setModel(this.fachada.rellenarComboEmpleado());
+        
+    }//GEN-LAST:event_tablaClientesReparacionesMouseClicked
+
+    private void btnComenzarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarReparacionActionPerformed
+
+        String idEmpleado, idCoche, descripcion;
+                               
+        //idEmpleado = this.txtIdEmpleadoNuevaReparacion.getText();
+               
+        idCoche = this.txtIdCoche.getText();
+        
+        descripcion = this.txtDescripcion.getText();
+        
+        //this.fachada.inserReapacion(idEmpleado, idCoche, descripcion);
+        
+        
+        
+    }//GEN-LAST:event_btnComenzarReparacionActionPerformed
+
+    private void tablaCocheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaCocheMouseClicked
+        
+        int fila;
+        
+        fila = this.tablaCoche.rowAtPoint(evt.getPoint());
+                           
+            String id = String.valueOf( this.tablaCoche.getValueAt(fila, 0));
+            System.out.println("El id de la tabla coches reparaciones es "+id);
+            
+               
+     this.txtIdCoche.setText(id);
+        
+    }//GEN-LAST:event_tablaCocheMouseClicked
 
     
     
@@ -941,21 +1066,22 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarNuevoClienteAgregar;
     public javax.swing.JButton btnAtrasEmpleado;
     private javax.swing.JButton btnAñadirClienteExistente;
+    private javax.swing.JButton btnBuscarCliente;
+    private javax.swing.JButton btnComenzarReparacion;
     public javax.swing.JButton btnEliminarEmpleado;
     public javax.swing.JButton btnEmpleado;
     public javax.swing.JButton btnLimpiarEmpleado;
     public javax.swing.JButton btnModificarEmpleado;
     private javax.swing.JButton btnNuevaReparacion;
     public javax.swing.JButton btnNuevoCliente;
+    private javax.swing.JComboBox<String> comboBuscar;
+    private javax.swing.JComboBox<String> comboEmpleado;
     public javax.swing.JFrame frameAdmin;
     private javax.swing.JFrame frameAñadirReparacion;
     public javax.swing.JFrame frameEmpleado;
     public javax.swing.JFrame frameNuevoCliente;
     private javax.swing.JFrame frameNuevoClienteExistente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -973,6 +1099,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -992,13 +1120,14 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTable tablaClientesExistentes;
+    private javax.swing.JTable tablaClientesReparaciones;
+    private javax.swing.JTable tablaCoche;
     public javax.swing.JScrollPane tablaEmpleados;
     public javax.swing.JTable tablaInfoReparaciones;
     public javax.swing.JTextField txtApellidosEmpleado;
@@ -1006,11 +1135,12 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscarReparacion1;
     private javax.swing.JTextField txtColorClienteExistente;
     public javax.swing.JTextField txtColorNuevoCoche;
+    private javax.swing.JTextArea txtDescripcion;
     public javax.swing.JTextField txtDniEmpleado;
     public javax.swing.JTextField txtDniNuevoCliente;
     private javax.swing.JTextField txtIdClienteExistente;
+    private javax.swing.JTextField txtIdCoche;
     public javax.swing.JTextField txtIdEmpleado;
-    private javax.swing.JTextField txtIdEmpleadoNuevaReparacion;
     private javax.swing.JTextField txtMarcaClienteExistente;
     public javax.swing.JTextField txtMarcaNuevoCoche;
     private javax.swing.JTextField txtMatriculaClienteExistente;
