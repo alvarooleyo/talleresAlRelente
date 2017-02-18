@@ -5,6 +5,9 @@
  */
 package vista;
 
+import fachada.fachada;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
@@ -14,6 +17,9 @@ public class vista extends javax.swing.JFrame {
     /**
      * Creates new form vista
      */
+    
+     fachada fachada = new fachada();
+    
     public vista() {
         initComponents();
         setLocationRelativeTo(null);
@@ -57,11 +63,11 @@ public class vista extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnNuevoCliente = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnAñadirClienteExistente = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        btnNuevaReparacion = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         frameNuevoCliente = new javax.swing.JFrame();
         jPanel10 = new javax.swing.JPanel();
@@ -82,11 +88,13 @@ public class vista extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnAgregarNuevoClienteAgregar = new javax.swing.JButton();
         frameNuevoClienteExistente = new javax.swing.JFrame();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaClientesExistentes = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        txtIdClienteExistente = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -127,6 +135,8 @@ public class vista extends javax.swing.JFrame {
             }
         ));
         tablaEmpleados.setViewportView(jTable1);
+
+        txtIdEmpleado.setEditable(false);
 
         txtDniEmpleado.setText(" ");
 
@@ -287,8 +297,13 @@ public class vista extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/female_user_search_128.png"))); // NOI18N
-        jButton5.setBorder(null);
+        btnAñadirClienteExistente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/female_user_search_128.png"))); // NOI18N
+        btnAñadirClienteExistente.setBorder(null);
+        btnAñadirClienteExistente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAñadirClienteExistenteActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("NUEVO CLIENTE");
 
@@ -309,7 +324,7 @@ public class vista extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(161, 161, 161)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5)
+                    .addComponent(btnAñadirClienteExistente)
                     .addComponent(jLabel17))
                 .addContainerGap(224, Short.MAX_VALUE))
         );
@@ -322,15 +337,20 @@ public class vista extends javax.swing.JFrame {
                     .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
+                    .addComponent(btnAñadirClienteExistente)
                     .addComponent(btnNuevoCliente))
                 .addContainerGap(168, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registro", jPanel3);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llave-inglesa_318-107147.jpg"))); // NOI18N
-        jButton4.setText("Nueva reparacion");
+        btnNuevaReparacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/llave-inglesa_318-107147.jpg"))); // NOI18N
+        btnNuevaReparacion.setText("Nueva reparacion");
+        btnNuevaReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaReparacionActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/stop_sign-128.png"))); // NOI18N
         jButton6.setText("Finalizar reparacion");
@@ -341,7 +361,7 @@ public class vista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(jButton4)
+                .addComponent(btnNuevaReparacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addGap(72, 72, 72))
@@ -351,7 +371,7 @@ public class vista extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(btnNuevaReparacion)
                     .addComponent(jButton6))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
@@ -473,8 +493,13 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoagregar.png"))); // NOI18N
-        jButton3.setText("Agregar");
+        btnAgregarNuevoClienteAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoagregar.png"))); // NOI18N
+        btnAgregarNuevoClienteAgregar.setText("Agregar");
+        btnAgregarNuevoClienteAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarNuevoClienteAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout frameNuevoClienteLayout = new javax.swing.GroupLayout(frameNuevoCliente.getContentPane());
         frameNuevoCliente.getContentPane().setLayout(frameNuevoClienteLayout);
@@ -488,7 +513,7 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(frameNuevoClienteLayout.createSequentialGroup()
                 .addGap(305, 305, 305)
-                .addComponent(jButton3)
+                .addComponent(btnAgregarNuevoClienteAgregar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         frameNuevoClienteLayout.setVerticalGroup(
@@ -499,7 +524,7 @@ public class vista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton3)
+                .addComponent(btnAgregarNuevoClienteAgregar)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -516,19 +541,38 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaClientesExistentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaClientesExistentesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaClientesExistentes);
+
+        jLabel24.setText("id cliente: ");
+
+        txtIdClienteExistente.setEditable(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdClienteExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 107, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(txtIdClienteExistente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 63, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Coche"));
@@ -586,6 +630,11 @@ public class vista extends javax.swing.JFrame {
 
         btnAgregarClienteExistente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoagregar.png"))); // NOI18N
         btnAgregarClienteExistente.setText("Agregar");
+        btnAgregarClienteExistente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarClienteExistenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout frameNuevoClienteExistenteLayout = new javax.swing.GroupLayout(frameNuevoClienteExistente.getContentPane());
         frameNuevoClienteExistente.getContentPane().setLayout(frameNuevoClienteExistenteLayout);
@@ -606,7 +655,7 @@ public class vista extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregarClienteExistente)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Coche"));
@@ -775,9 +824,84 @@ public class vista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnAgregarNuevoClienteAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNuevoClienteAgregarActionPerformed
+        
+        String dniCliente, nombreCliente, apellidosCliente;
+        int telefonoCliente;
+        
+        dniCliente = this.txtDniNuevoCliente.getText();
+        nombreCliente = this.txtNombreNuevoCliente.getText();
+        apellidosCliente = this.txtApellidosNuevoCliente.getText();
+        telefonoCliente = Integer.parseInt(this.txtTelefonoNuevoCliente.getText());
+        
+        this.fachada.insertarCliente(dniCliente, nombreCliente, apellidosCliente, telefonoCliente);
+        
+        String matricula, marca, modelo, color;
+        
+        matricula = this.txtMatriculaNuevoCoche.getText();
+        marca = this.txtMarcaNuevoCoche.getText();
+        modelo = this.txtModeloNuevoCoche.getText();
+        color = this.txtColorNuevoCoche.getText();
+        
+        this.fachada.insertarCoche(matricula, marca, modelo, color);
+        
+        this.fachada.insertarClienteTieneCoche(dniCliente, matricula);
+        
+        
+    }//GEN-LAST:event_btnAgregarNuevoClienteAgregarActionPerformed
+
+    private void btnAñadirClienteExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirClienteExistenteActionPerformed
+        
+        this.frameNuevoClienteExistente.setVisible(true);
+        this.frameNuevoClienteExistente.setSize(800, 600);
+        this.frameNuevoClienteExistente.setLocationRelativeTo(null);
+        
+        this.tablaClientesExistentes.setModel(this.fachada.getTablaCliente());
+        
+    }//GEN-LAST:event_btnAñadirClienteExistenteActionPerformed
+
+    private void btnAgregarClienteExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteExistenteActionPerformed
+        
+        String matricula, marca, modelo, color;
+        int idCliente;
+        
+        idCliente = Integer.parseInt(this.txtIdClienteExistente.getText());
+        
+        matricula = this.txtMatriculaClienteExistente.getText();
+        marca = this.txtMarcaClienteExistente.getText();
+        modelo = this.txtModeloClienteExistente.getText();
+        color = this.txtColorClienteExistente.getText();
+        
+        this.fachada.insertarCoche(matricula, marca, modelo, color);
+        
+        this.fachada.insertarClienteTieneCocheConId(idCliente, matricula);
+        
+    }//GEN-LAST:event_btnAgregarClienteExistenteActionPerformed
+
+    private void tablaClientesExistentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesExistentesMouseClicked
+        
+        int fila;
+        
+        fila = this.tablaClientesExistentes.rowAtPoint(evt.getPoint());
+            if (fila > -1){                
+                this.txtIdClienteExistente.setText( String.valueOf( this.tablaClientesExistentes.getValueAt(fila, 0) ));
+            }
+               
+    }//GEN-LAST:event_tablaClientesExistentesMouseClicked
+
+    private void btnNuevaReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReparacionActionPerformed
+
+        this.frameAñadirReparacion.setVisible(true);
+        this.frameAñadirReparacion.setSize(800, 600);
+        this.frameAñadirReparacion.setLocationRelativeTo(null);
+
+
+    }//GEN-LAST:event_btnNuevaReparacionActionPerformed
+
+    
+    
+    
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -814,11 +938,14 @@ public class vista extends javax.swing.JFrame {
     public javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnAgregarClienteExistente;
     public javax.swing.JButton btnAgregarEmpleado;
+    private javax.swing.JButton btnAgregarNuevoClienteAgregar;
     public javax.swing.JButton btnAtrasEmpleado;
+    private javax.swing.JButton btnAñadirClienteExistente;
     public javax.swing.JButton btnEliminarEmpleado;
     public javax.swing.JButton btnEmpleado;
     public javax.swing.JButton btnLimpiarEmpleado;
     public javax.swing.JButton btnModificarEmpleado;
+    private javax.swing.JButton btnNuevaReparacion;
     public javax.swing.JButton btnNuevoCliente;
     public javax.swing.JFrame frameAdmin;
     private javax.swing.JFrame frameAñadirReparacion;
@@ -827,9 +954,6 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JFrame frameNuevoClienteExistente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -848,6 +972,7 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -865,15 +990,12 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTable tablaClientesExistentes;
@@ -886,6 +1008,7 @@ public class vista extends javax.swing.JFrame {
     public javax.swing.JTextField txtColorNuevoCoche;
     public javax.swing.JTextField txtDniEmpleado;
     public javax.swing.JTextField txtDniNuevoCliente;
+    private javax.swing.JTextField txtIdClienteExistente;
     public javax.swing.JTextField txtIdEmpleado;
     private javax.swing.JTextField txtIdEmpleadoNuevaReparacion;
     private javax.swing.JTextField txtMarcaClienteExistente;
