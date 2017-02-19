@@ -56,13 +56,15 @@ public class fachada extends baseDatos.database{
     
     
     public void eliminarCliente(int idCliente){
-        String q="delete from cliente where idCliente='"+idCliente+"'";
+                  
+        String q="delete from cliente where idCliente='"+idCliente+"' and (select count(*) from clienteTieneCoche where idCliente = '"+idCliente+"')='0'";
          try{
              PreparedStatement pstm = this.getConexion().prepareStatement(q);
              pstm.execute();
              pstm.close();
-             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             
              }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null, "El cliente que intenta eliminar tiene coches asignados, por favor eliminelos y vuelva a intentarlo");
                  System.err.println( e.getMessage() );
                  }
     }
@@ -85,7 +87,7 @@ public class fachada extends baseDatos.database{
     
     public void insertarCoche(String matricula, String marca, String modelo, String color){
         
-        String q="INSERT INTO coche VALUES (null, '"+matricula+"', '"+marca+"', '"+modelo+"', '"+color+"');";
+        String q="INSERT INTO coche VALUES (null, '"+matricula+"', '"+marca+"', '"+modelo+"', '"+color+"', '0');";
            System.out.println(q);
          try{
              //PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -101,8 +103,36 @@ public class fachada extends baseDatos.database{
     }  
     
     
-    public void modificarCoche(int idCoche, String matricula,String marca,String modelo, String color){
-        String q="update coche set matricula='"+matricula+"',marca='"+marca+"', modelo='"+modelo+"', color='"+color+"' where idCoche='"+idCoche+"'";
+    public void modificarCoche(int idCoche, String matricula,String marca,String modelo, String color, int enReparacion){
+        String q="update coche set matricula='"+matricula+"',marca='"+marca+"', modelo='"+modelo+"', color='"+color+"', enReparacion='"+enReparacion+"' where idCoche='"+idCoche+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    }
+    
+    public void terminarEnReparacion(String idCoche){
+        String q="update coche set enReparacion='0' where idCoche='"+idCoche+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    }
+    
+    public void comenzarEnReparacion(String idCoche){
+        String q="update coche set enReparacion='1' where idCoche='"+idCoche+"'";
          try{
              PreparedStatement pstm = this.getConexion().prepareStatement(q);
              pstm.execute();
@@ -116,15 +146,15 @@ public class fachada extends baseDatos.database{
     }
     
     
-    
     public void eliminarCoche(int idCoche){
-        String q="delete from coche where idCoche='"+idCoche+"'";
+        String q="delete from coche where idCoche='"+idCoche+"' and enReparacion='0'";
          try{
              PreparedStatement pstm = this.getConexion().prepareStatement(q);
              pstm.execute();
              pstm.close();
              JOptionPane.showMessageDialog(null,"Operación Realizada");
              }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null, "Error: el coche que está intentando eliminar, se encuentra en proceso de reparacion");
                  System.err.println( e.getMessage() );
                  }
     }
@@ -227,7 +257,7 @@ public class fachada extends baseDatos.database{
     }
     
     
-    public void insertarReapacion(String idEmpleado, String idCoche, String descripcion){
+    public void insertarReparacion(String idEmpleado, String idCoche, String descripcion){
         
         String q="INSERT INTO reparacion VALUES (null, '"+idEmpleado+"', '"+idCoche+"', '"+descripcion+"');";
            System.out.println(q);
@@ -242,6 +272,18 @@ public class fachada extends baseDatos.database{
                  System.err.println( e.getMessage() );
                  }
         
+    }
+    
+    public void eliminarReparacion(int idReparacion){
+        String q="delete from reparacion where idReparacion='"+idReparacion+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
     }
     
     public DefaultTableModel getTablaCliente(){
@@ -285,6 +327,52 @@ public class fachada extends baseDatos.database{
         
         
       }
+    
+    
+    
+    
+    public DefaultTableModel getTablaEmpleado(){
+          DefaultTableModel tablemodel = new DefaultTableModel();
+          int registros = 0;
+          String [] columNames = {"idEmpleado", "dniEmpleado", "nombreEmpleado", "apellidosEmpleado", "telefonoEmpleado"};
+          try{
+              String sql ="select count(*) as total from empleado";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql);
+              ResultSet res = pstm.executeQuery();
+              res.next();
+              registros = res.getInt("total");
+              res.close();
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+          // se crea una matriz con tanta filas y columnas como se necesiten
+          Object[][] data = new String[registros][5];
+            try {
+              //se realiza la consulta sql y llenamos los datos en la matriz "Object[][]" data
+              String sql2 = "select idEmpleado, dniEmpleado, nombreEmpleado, apellidosEmpleado, telefonoEmpleado from empleado";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql2);
+              ResultSet res = pstm.executeQuery();
+              int i = 0;
+              while(res.next()){
+                  data[i][0] = res.getString("idEmpleado");
+                  data[i][1] = res.getString("dniEmpleado");
+                  data[i][2] = res.getString("nombreEmpleado");
+                  data[i][3] = res.getString("apellidosEmpleado");
+                  data[i][4] = res.getString("telefonoEmpleado");
+                i++;
+              }
+              res.close();
+              //se añade la matriz de datos en el DefaultTableModel
+              tablemodel.setDataVector(data, columNames);
+                System.out.println("tabla cliente cargada");
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+                    return tablemodel;
+        
+        
+      }
+    
     
     
     
@@ -399,7 +487,7 @@ public class fachada extends baseDatos.database{
     public DefaultTableModel getTablaCoche(int id){
           DefaultTableModel tablemodel = new DefaultTableModel();
           int registros = 0;
-          String [] columNames = {"idCoche", "matricula", "marca", "modelo", "color"};
+          String [] columNames = {"idCoche", "matricula", "marca", "modelo", "color", "enReparacion"};
           try{
               String sql ="select count(*) as total from coche";
               PreparedStatement pstm = this.getConexion().prepareStatement(sql);
@@ -411,13 +499,13 @@ public class fachada extends baseDatos.database{
               System.err.println( e.getMessage() );
           }
           // se crea una matriz con tanta filas y columnas como se necesiten
-          Object[][] data = new String[registros][5];
+          Object[][] data = new String[registros][6];
             try {
               //se realiza la consulta sql y llenamos los datos en la matriz "Object[][]" data
               
               
               
-              String sql2 = "select idCoche, matricula, marca, modelo, color from coche where idCoche IN (select idCoche from clienteTieneCoche where idCliente = '"+id+"')";
+              String sql2 = "select idCoche, matricula, marca, modelo, color, enReparacion from coche where idCoche IN (select idCoche from clienteTieneCoche where idCliente = '"+id+"')";
               PreparedStatement pstm = this.getConexion().prepareStatement(sql2);
               ResultSet res = pstm.executeQuery();
               int i = 0;
@@ -427,6 +515,7 @@ public class fachada extends baseDatos.database{
                   data[i][2] = res.getString("marca");
                   data[i][3] = res.getString("modelo");
                   data[i][4] = res.getString("color");
+                  data[i][5] = res.getString("enReparacion");
                 i++;
               }
               res.close();
@@ -440,6 +529,55 @@ public class fachada extends baseDatos.database{
         
         
       }
+    
+    
+    public DefaultTableModel getTablaTodosCoches(){
+          DefaultTableModel tablemodel = new DefaultTableModel();
+          int registros = 0;
+          String [] columNames = {"idCoche", "matricula", "marca", "modelo", "color", "enReparacion"};
+          try{
+              String sql ="select count(*) as total from coche";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql);
+              ResultSet res = pstm.executeQuery();
+              res.next();
+              registros = res.getInt("total");
+              res.close();
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+          // se crea una matriz con tanta filas y columnas como se necesiten
+          Object[][] data = new String[registros][6];
+            try {
+              //se realiza la consulta sql y llenamos los datos en la matriz "Object[][]" data
+              
+              
+              
+              String sql2 = "select idCoche, matricula, marca, modelo, color, enReparacion from coche";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql2);
+              ResultSet res = pstm.executeQuery();
+              int i = 0;
+              while(res.next()){
+                  data[i][0] = res.getString("idCoche");
+                  data[i][1] = res.getString("matricula");
+                  data[i][2] = res.getString("marca");
+                  data[i][3] = res.getString("modelo");
+                  data[i][4] = res.getString("color");
+                  data[i][5] = res.getString("enReparacion");
+                i++;
+              }
+              res.close();
+              //se añade la matriz de datos en el DefaultTableModel
+              tablemodel.setDataVector(data, columNames);
+                System.out.println("tabla coche cargada");
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+                    return tablemodel;
+        
+        
+      }
+    
+    
     
     public DefaultComboBoxModel rellenarComboEmpleado(){
         
