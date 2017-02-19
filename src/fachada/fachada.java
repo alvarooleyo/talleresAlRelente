@@ -39,6 +39,50 @@ public class fachada extends baseDatos.database{
         
     }  
     
+    
+    public void modificarCliente(int idCliente, String dniCliente,String nombreCliente,String apellidosCliente, int telefonoCliente){
+        String q="update empleado set dniCliente='"+dniCliente+"',nombreCliente='"+nombreCliente+"', apellidosCliente='"+apellidosCliente+"', telefonoCliente='"+telefonoCliente+"' where idCliente='"+idCliente+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    }
+    
+    
+    public void eliminarCliente(int idCliente){
+        String q="delete from cliente where idCliente='"+idCliente+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
+    }
+    
+    
+    public void eliminarClienteDeClienteTieneCoche(int idCliente){
+        String q="delete from clienteTieneCoche where idCliente='"+idCliente+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
+    }
+    
+    
+    
+    
     public void insertarCoche(String matricula, String marca, String modelo, String color){
         
         String q="INSERT INTO coche VALUES (null, '"+matricula+"', '"+marca+"', '"+modelo+"', '"+color+"');";
@@ -55,6 +99,52 @@ public class fachada extends baseDatos.database{
                  }
         
     }  
+    
+    
+    public void modificarCoche(int idCoche, String matricula,String marca,String modelo, String color){
+        String q="update coche set matricula='"+matricula+"',marca='"+marca+"', modelo='"+modelo+"', color='"+color+"' where idCoche='"+idCoche+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    }
+    
+    
+    
+    public void eliminarCoche(int idCoche){
+        String q="delete from coche where idCoche='"+idCoche+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
+    }
+    
+    
+    public void eliminarCocheDeClienteTieneCoche(int idCoche){
+        String q="delete from clienteTieneCoche where idCoche='"+idCoche+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
+    }
+    
+    
+    
+    
     
     public void insertarClienteTieneCoche(String dniCliente, String matricula){
         
@@ -91,7 +181,53 @@ public class fachada extends baseDatos.database{
     }  
     
     
-    public void inserReapacion(String idEmpleado, String idCoche, String descripcion){
+    public void insertarEmpleado(String dniEmpleado, String nombreEmpleado, String apellidosEmpleado, int telefonoEmpleado){
+        
+        String q="insert into empleado values (null, '"+dniEmpleado+"', '"+nombreEmpleado+"', '"+apellidosEmpleado+"', '"+telefonoEmpleado+"')  ";
+           System.out.println(q);
+         try{
+             //PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    } 
+    
+    
+    public void modificarEmpleado(int idEmpleado, String dniEmpleado,String nombreEmpleado,String apellidosEmpleado, int telefonoEmpleado){
+        String q="update empleado set dniEmpleado='"+dniEmpleado+"',nombreEmpleado='"+nombreEmpleado+"', apellidosEmpleado='"+apellidosEmpleado+"', telefonoEmpleado='"+telefonoEmpleado+"' where idEmpleado='"+idEmpleado+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,"Error: Los datos son incorrectos.\nReviselos y vuelva a intentarlo");
+                 System.err.println( e.getMessage() );
+                 }
+        
+    }
+    
+    
+    public void eliminarEmpleado(int idEmpleado){
+        String q="delete from empleado where idEmpleado='"+idEmpleado+"'";
+         try{
+             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+             pstm.execute();
+             pstm.close();
+             JOptionPane.showMessageDialog(null,"Operación Realizada");
+             }catch(SQLException e){
+                 System.err.println( e.getMessage() );
+                 }
+    }
+    
+    
+    public void insertarReapacion(String idEmpleado, String idCoche, String descripcion){
         
         String q="INSERT INTO reparacion VALUES (null, '"+idEmpleado+"', '"+idCoche+"', '"+descripcion+"');";
            System.out.println(q);
@@ -149,6 +285,54 @@ public class fachada extends baseDatos.database{
         
         
       }
+    
+    
+    
+    
+    public DefaultTableModel getTablaReparacion(){
+          DefaultTableModel tablemodel = new DefaultTableModel();
+          int registros = 0;
+          String [] columNames = {"idReparacion", "idEmpleado", "idCoche", "descripcion"};
+          try{
+              String sql ="select count(*) as total from reparacion";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql);
+              ResultSet res = pstm.executeQuery();
+              res.next();
+              registros = res.getInt("total");
+              res.close();
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+          // se crea una matriz con tanta filas y columnas como se necesiten
+          Object[][] data = new String[registros][4];
+            try {
+              //se realiza la consulta sql y llenamos los datos en la matriz "Object[][]" data
+              String sql2 = "select idReparacion, idEmpleado, idCoche, descripcion from reparacion";
+              PreparedStatement pstm = this.getConexion().prepareStatement(sql2);
+              ResultSet res = pstm.executeQuery();
+              int i = 0;
+              while(res.next()){
+                  data[i][0] = res.getString("idReparacion");
+                  data[i][1] = res.getString("idEmpleado");
+                  data[i][2] = res.getString("idCoche");
+                  data[i][3] = res.getString("descripcion");
+                 
+                i++;
+              }
+              res.close();
+              //se añade la matriz de datos en el DefaultTableModel
+              tablemodel.setDataVector(data, columNames);
+                System.out.println("tabla cliente cargada");
+          } catch (SQLException e) {
+              System.err.println( e.getMessage() );
+          }
+                    return tablemodel;
+        
+        
+      }
+    
+    
+    
     
     public DefaultTableModel getTablaClienteConId(String buscar, String texto){
           DefaultTableModel tablemodel = new DefaultTableModel();

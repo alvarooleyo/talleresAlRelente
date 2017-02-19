@@ -69,6 +69,42 @@ public class vista extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnNuevaReparacion = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        btnModificarGestionCliente = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        btnAgregarGestionCliente = new javax.swing.JButton();
+        txtTelefonoGestionCliente = new javax.swing.JTextField();
+        txtIdGestionCliente = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txtApellidosGestionCliente = new javax.swing.JTextField();
+        btnLimpiarGestionCliente = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        btnAtrasCliente = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        txtDniGestionCliente = new javax.swing.JTextField();
+        tablaEmpleados1 = new javax.swing.JScrollPane();
+        tablaGestionCliente = new javax.swing.JTable();
+        txtNombreGestionCliente = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        btnEliminarGestionCliente = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        txtIdGestionCoche = new javax.swing.JTextField();
+        txtModeloGestionCoche = new javax.swing.JTextField();
+        btnModificarGestionCoche = new javax.swing.JButton();
+        tablaEmpleados2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        txtMarcaGestionCoche = new javax.swing.JTextField();
+        btnAgregarGestionCoche = new javax.swing.JButton();
+        txtColorGestionCoche = new javax.swing.JTextField();
+        txtMatriculaGestionCoche = new javax.swing.JTextField();
+        btnEliminarGestionCoche = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        btnAtrasGestionCoche = new javax.swing.JButton();
+        btnLimpiarGestionCoche = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
         frameNuevoCliente = new javax.swing.JFrame();
         jPanel10 = new javax.swing.JPanel();
         txtDniNuevoCliente = new javax.swing.JTextField();
@@ -237,13 +273,13 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApellidosEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarEmpleado)
                     .addComponent(btnModificarEmpleado)
                     .addComponent(btnEliminarEmpleado)
                     .addComponent(btnLimpiarEmpleado))
-                .addGap(37, 37, 37))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout frameAdminLayout = new javax.swing.GroupLayout(frameAdmin.getContentPane());
@@ -254,9 +290,7 @@ public class vista extends javax.swing.JFrame {
         );
         frameAdminLayout.setVerticalGroup(
             frameAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frameAdminLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         tablaInfoReparaciones.setModel(new javax.swing.table.DefaultTableModel(
@@ -278,7 +312,7 @@ public class vista extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(311, 311, 311)
                 .addComponent(jLabel8)
@@ -289,7 +323,7 @@ public class vista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Info", jPanel2);
@@ -331,7 +365,7 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAñadirClienteExistente)
                     .addComponent(jLabel17))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +378,7 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAñadirClienteExistente)
                     .addComponent(btnNuevoCliente))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registro", jPanel3);
@@ -367,7 +401,7 @@ public class vista extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(btnNuevaReparacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addGap(72, 72, 72))
         );
@@ -378,10 +412,254 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevaReparacion)
                     .addComponent(jButton6))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reparacion", jPanel4);
+
+        btnModificarGestionCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconomodificar.png"))); // NOI18N
+        btnModificarGestionCliente.setText("Modificar");
+
+        jLabel30.setText("Apellidos: ");
+
+        btnAgregarGestionCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoagregar.png"))); // NOI18N
+        btnAgregarGestionCliente.setText("Agregar");
+
+        txtIdGestionCliente.setEditable(false);
+
+        jLabel28.setText("DNI: ");
+
+        btnLimpiarGestionCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar.jpg"))); // NOI18N
+        btnLimpiarGestionCliente.setText("Limpiar");
+
+        jLabel29.setText("Nombre: ");
+
+        btnAtrasCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.jpg"))); // NOI18N
+
+        jLabel31.setText("Telefono: ");
+
+        txtDniGestionCliente.setText(" ");
+
+        tablaGestionCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaEmpleados1.setViewportView(tablaGestionCliente);
+
+        jLabel27.setText("ID: ");
+
+        btnEliminarGestionCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoeliminar.png"))); // NOI18N
+        btnEliminarGestionCliente.setText("Eliminar");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(btnAgregarGestionCliente)
+                        .addGap(97, 618, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(tablaEmpleados1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addComponent(btnAtrasCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(txtIdGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(83, 83, 83)
+                            .addComponent(jLabel28))
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(txtNombreGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel31)))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnModificarGestionCliente)
+                        .addComponent(txtApellidosGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(btnEliminarGestionCliente)
+                        .addGap(87, 87, 87)
+                        .addComponent(btnLimpiarGestionCliente))
+                    .addComponent(txtTelefonoGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDniGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tablaEmpleados1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnAtrasCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28)
+                    .addComponent(txtDniGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(txtTelefonoGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtApellidosGestionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarGestionCliente)
+                    .addComponent(btnModificarGestionCliente)
+                    .addComponent(btnEliminarGestionCliente)
+                    .addComponent(btnLimpiarGestionCliente))
+                .addGap(0, 95, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Gestion Clientes", jPanel7);
+
+        txtIdGestionCoche.setEditable(false);
+
+        btnModificarGestionCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconomodificar.png"))); // NOI18N
+        btnModificarGestionCoche.setText("Modificar");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaEmpleados2.setViewportView(jTable2);
+
+        btnAgregarGestionCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoagregar.png"))); // NOI18N
+        btnAgregarGestionCoche.setText("Agregar");
+
+        txtMatriculaGestionCoche.setText(" ");
+
+        btnEliminarGestionCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoeliminar.png"))); // NOI18N
+        btnEliminarGestionCoche.setText("Eliminar");
+
+        jLabel32.setText("Modelo: ");
+
+        jLabel35.setText("Matricula: ");
+
+        jLabel33.setText("Color: ");
+
+        jLabel36.setText("ID: ");
+
+        btnAtrasGestionCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.jpg"))); // NOI18N
+
+        btnLimpiarGestionCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar.jpg"))); // NOI18N
+        btnLimpiarGestionCoche.setText("Limpiar");
+
+        jLabel34.setText("Marca: ");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(tablaEmpleados2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                        .addComponent(btnAtrasGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(btnAgregarGestionCoche)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModificarGestionCoche)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnEliminarGestionCoche)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiarGestionCoche)
+                        .addGap(96, 96, 96))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel36))
+                            .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtColorGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(txtMarcaGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel32))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(txtIdGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(146, 146, 146)
+                                        .addComponent(jLabel35)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMatriculaGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModeloGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnAtrasGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tablaEmpleados2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(txtIdGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35)
+                    .addComponent(txtMatriculaGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(txtMarcaGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32)
+                    .addComponent(txtModeloGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtColorGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminarGestionCoche)
+                    .addComponent(btnAgregarGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarGestionCoche)
+                    .addComponent(btnModificarGestionCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62))
+        );
+
+        jTabbedPane1.addTab("Gestion Coches", jPanel8);
 
         javax.swing.GroupLayout frameEmpleadoLayout = new javax.swing.GroupLayout(frameEmpleado.getContentPane());
         frameEmpleado.getContentPane().setLayout(frameEmpleadoLayout);
@@ -391,7 +669,7 @@ public class vista extends javax.swing.JFrame {
         );
         frameEmpleadoLayout.setVerticalGroup(
             frameEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cliente"));
@@ -997,13 +1275,13 @@ public class vista extends javax.swing.JFrame {
 
         String idEmpleado, idCoche, descripcion;
                                
-        //idEmpleado = this.txtIdEmpleadoNuevaReparacion.getText();
+        idEmpleado = String.valueOf(this.comboEmpleado.getSelectedItem());
                
         idCoche = this.txtIdCoche.getText();
         
         descripcion = this.txtDescripcion.getText();
         
-        //this.fachada.inserReapacion(idEmpleado, idCoche, descripcion);
+        this.fachada.insertarReapacion(idEmpleado, idCoche, descripcion);
         
         
         
@@ -1063,15 +1341,25 @@ public class vista extends javax.swing.JFrame {
     public javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnAgregarClienteExistente;
     public javax.swing.JButton btnAgregarEmpleado;
+    public javax.swing.JButton btnAgregarGestionCliente;
+    public javax.swing.JButton btnAgregarGestionCoche;
     private javax.swing.JButton btnAgregarNuevoClienteAgregar;
+    public javax.swing.JButton btnAtrasCliente;
     public javax.swing.JButton btnAtrasEmpleado;
+    public javax.swing.JButton btnAtrasGestionCoche;
     private javax.swing.JButton btnAñadirClienteExistente;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnComenzarReparacion;
     public javax.swing.JButton btnEliminarEmpleado;
+    public javax.swing.JButton btnEliminarGestionCliente;
+    public javax.swing.JButton btnEliminarGestionCoche;
     public javax.swing.JButton btnEmpleado;
     public javax.swing.JButton btnLimpiarEmpleado;
+    public javax.swing.JButton btnLimpiarGestionCliente;
+    public javax.swing.JButton btnLimpiarGestionCoche;
     public javax.swing.JButton btnModificarEmpleado;
+    public javax.swing.JButton btnModificarGestionCliente;
+    public javax.swing.JButton btnModificarGestionCoche;
     private javax.swing.JButton btnNuevaReparacion;
     public javax.swing.JButton btnNuevoCliente;
     private javax.swing.JComboBox<String> comboBuscar;
@@ -1101,7 +1389,17 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1118,6 +1416,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1125,31 +1425,45 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTable tablaClientesExistentes;
     private javax.swing.JTable tablaClientesReparaciones;
     private javax.swing.JTable tablaCoche;
     public javax.swing.JScrollPane tablaEmpleados;
+    public javax.swing.JScrollPane tablaEmpleados1;
+    public javax.swing.JScrollPane tablaEmpleados2;
+    private javax.swing.JTable tablaGestionCliente;
     public javax.swing.JTable tablaInfoReparaciones;
     public javax.swing.JTextField txtApellidosEmpleado;
+    public javax.swing.JTextField txtApellidosGestionCliente;
     public javax.swing.JTextField txtApellidosNuevoCliente;
     private javax.swing.JTextField txtBuscarReparacion1;
     private javax.swing.JTextField txtColorClienteExistente;
+    public javax.swing.JTextField txtColorGestionCoche;
     public javax.swing.JTextField txtColorNuevoCoche;
     private javax.swing.JTextArea txtDescripcion;
     public javax.swing.JTextField txtDniEmpleado;
+    public javax.swing.JTextField txtDniGestionCliente;
     public javax.swing.JTextField txtDniNuevoCliente;
     private javax.swing.JTextField txtIdClienteExistente;
     private javax.swing.JTextField txtIdCoche;
     public javax.swing.JTextField txtIdEmpleado;
+    public javax.swing.JTextField txtIdGestionCliente;
+    public javax.swing.JTextField txtIdGestionCoche;
     private javax.swing.JTextField txtMarcaClienteExistente;
+    public javax.swing.JTextField txtMarcaGestionCoche;
     public javax.swing.JTextField txtMarcaNuevoCoche;
     private javax.swing.JTextField txtMatriculaClienteExistente;
+    public javax.swing.JTextField txtMatriculaGestionCoche;
     public javax.swing.JTextField txtMatriculaNuevoCoche;
     private javax.swing.JTextField txtModeloClienteExistente;
+    public javax.swing.JTextField txtModeloGestionCoche;
     public javax.swing.JTextField txtModeloNuevoCoche;
     public javax.swing.JTextField txtNombreEmpleado;
+    public javax.swing.JTextField txtNombreGestionCliente;
     public javax.swing.JTextField txtNombreNuevoCliente;
     public javax.swing.JTextField txtTelefonoEmpleado;
+    public javax.swing.JTextField txtTelefonoGestionCliente;
     public javax.swing.JTextField txtTelefonoNuevoCliente;
     // End of variables declaration//GEN-END:variables
 }
