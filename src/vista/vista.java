@@ -5,9 +5,23 @@
  */
 package vista;
 
+import baseDatos.database;
 import fachada.fachada;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -104,6 +118,11 @@ public class vista extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         txtEnReparacionGestionCoche = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        txtIdClienteReporte = new javax.swing.JTextField();
+        btnGenerarReporte = new javax.swing.JButton();
         frameNuevoCliente = new javax.swing.JFrame();
         jPanel10 = new javax.swing.JPanel();
         txtDniNuevoCliente = new javax.swing.JTextField();
@@ -721,6 +740,49 @@ public class vista extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Gestion Coches", jPanel8);
+
+        jLabel40.setText("Introduzca la id del cliente para generar un informe con los datos de los coches que posee.");
+
+        jLabel42.setText("id: ");
+
+        btnGenerarReporte.setText("GENERAR");
+        btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarReporteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(229, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addGap(195, 195, 195))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel42)
+                .addGap(18, 18, 18)
+                .addComponent(txtIdClienteReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99)
+                .addComponent(btnGenerarReporte)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel40)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(txtIdClienteReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarReporte))
+                .addContainerGap(381, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Reportes", jPanel9);
 
         javax.swing.GroupLayout frameEmpleadoLayout = new javax.swing.GroupLayout(frameEmpleado.getContentPane());
         frameEmpleado.getContentPane().setLayout(frameEmpleadoLayout);
@@ -1751,6 +1813,20 @@ public class vista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLimpiarGestionCocheActionPerformed
 
+    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
+
+         try {
+             this.fachada.reporteCoches();
+         } catch (SQLException ex) {
+             Logger.getLogger(vista.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (JRException ex) {
+             Logger.getLogger(vista.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    
+        
+    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+
     
     
     
@@ -1800,6 +1876,7 @@ public class vista extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminarGestionCoche;
     private javax.swing.JButton btnEliminarReparacion;
     public javax.swing.JButton btnEmpleado;
+    private javax.swing.JButton btnGenerarReporte;
     public javax.swing.JButton btnLimpiarEmpleado;
     public javax.swing.JButton btnLimpiarGestionCliente;
     public javax.swing.JButton btnLimpiarGestionCoche;
@@ -1852,7 +1929,9 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1870,6 +1949,7 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1902,6 +1982,7 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTextField txtEnReparacionAñadirReparacion;
     private javax.swing.JTextField txtEnReparacionGestionCoche;
     private javax.swing.JTextField txtIdClienteExistente;
+    public javax.swing.JTextField txtIdClienteReporte;
     private javax.swing.JTextField txtIdCoche;
     private javax.swing.JTextField txtIdCocheEliminarReparacion;
     public javax.swing.JTextField txtIdEmpleado;

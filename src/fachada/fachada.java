@@ -5,12 +5,27 @@
  */
 package fachada;
 
+import baseDatos.database;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import vista.vista;
 
 
 /**
@@ -21,6 +36,22 @@ public class fachada extends baseDatos.database{
     
      public fachada(){      
     }
+     
+     
+    public void reporteCoches() throws SQLException, JRException{
+    
+        database cn = new database();
+        String dir;
+        dir = "src/reporte/reporte.jrxml";
+        
+        JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
+        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, null, cn.getConexion());
+        JasperViewer visor = new JasperViewer(mostrarReporte, false);
+        visor.setVisible(true);
+        
+        
+    }
+     
      
     
     public void insertarCliente(String dniCliente , String nombreCliente,String apellidosCliente,int telefonoCliente){
