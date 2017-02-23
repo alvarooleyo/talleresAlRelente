@@ -23,8 +23,8 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+
 import vista.vista;
 
 
@@ -38,14 +38,18 @@ public class fachada extends baseDatos.database{
     }
      
      
-    public void reporteCoches() throws SQLException, JRException{
+    public void reporteCoches(Map parametro) throws JRException {
     
         database cn = new database();
+        
+        
+        
         String dir;
-        dir = "src/reporte/reporte.jrxml";
+        dir = "src/reportes/reporte.jrxml";
         
         JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
-        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, null, cn.getConexion());
+        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, parametro, cn.getConexion());
+        //JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, "14", this.getConexion());
         JasperViewer visor = new JasperViewer(mostrarReporte, false);
         visor.setVisible(true);
         

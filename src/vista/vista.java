@@ -16,12 +16,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+
+
 
 /**
  *
@@ -1815,14 +1811,16 @@ public class vista extends javax.swing.JFrame {
 
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
 
+        System.out.println("boton reporte pulsado");
+        
+        Map parametro = new HashMap();
+        parametro.put("id", txtIdClienteReporte.getText());
+        
          try {
-             this.fachada.reporteCoches();
-         } catch (SQLException ex) {
-             Logger.getLogger(vista.class.getName()).log(Level.SEVERE, null, ex);
+             this.fachada.reporteCoches(parametro);
          } catch (JRException ex) {
              Logger.getLogger(vista.class.getName()).log(Level.SEVERE, null, ex);
          }
-        
     
         
     }//GEN-LAST:event_btnGenerarReporteActionPerformed
