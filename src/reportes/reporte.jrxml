@@ -17,7 +17,7 @@
 FROM
      `coche` coche
 WHERE
-      idCoche IN (select idCoche from clienteTieneCoche where idCliente='$P!{id}'); ]]>
+      idCoche IN (select idCoche from clienteTieneCoche where idCliente='$P!{id}');]]>
 	</queryString>
 	<field name="coche_idCoche" class="java.lang.Integer"/>
 	<field name="coche_matricula" class="java.lang.String"/>
@@ -29,47 +29,107 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="25" width="251" height="47" uuid="77fbc027-c41f-41b2-b51f-bdc1e217b133"/>
+				<textElement>
+					<font fontName="Haettenschweiler" size="18"/>
+				</textElement>
+				<text><![CDATA[COCHES QUE POSEE EL CLIENTE SELECCIONADO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="422" y="16" width="128" height="63" uuid="c8a27cb4-7cfb-402b-b21f-fbd2e86f3c5e"/>
+				<imageExpression><![CDATA["C:\\Users\\alvaro\\Documents\\NetBeansProjects\\tallere\\src\\imagenes\\ferrari_PNG10650.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="24" y="-1" width="84" height="80" uuid="0f888d22-8d35-4336-ad08-ee3740cd06d3"/>
+				<imageExpression><![CDATA["C:\\Users\\alvaro\\Documents\\NetBeansProjects\\tallere\\src\\imagenes\\Talleres.jpg"]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="32" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="138" height="20" uuid="253f76b9-eaa3-4bb6-9716-3f6304a75d9c"/>
-				<text><![CDATA[coche_matricula]]></text>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+					<topPen lineWidth="2.0" lineStyle="Double"/>
+					<leftPen lineWidth="2.0" lineStyle="Double"/>
+					<bottomPen lineWidth="2.0" lineStyle="Double"/>
+					<rightPen lineWidth="2.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Matricula]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="138" y="0" width="138" height="20" uuid="44fea32f-05a3-4a06-b6ca-56ea2227e5ab"/>
-				<text><![CDATA[coche_marca]]></text>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+					<topPen lineWidth="2.0" lineStyle="Double"/>
+					<leftPen lineWidth="2.0" lineStyle="Double"/>
+					<bottomPen lineWidth="2.0" lineStyle="Double"/>
+					<rightPen lineWidth="2.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="276" y="0" width="138" height="20" uuid="786977e1-e763-4c17-9922-e10a1491f016"/>
-				<text><![CDATA[coche_modelo]]></text>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+					<topPen lineWidth="2.0" lineStyle="Double"/>
+					<leftPen lineWidth="2.0" lineStyle="Double"/>
+					<bottomPen lineWidth="2.0" lineStyle="Double"/>
+					<rightPen lineWidth="2.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="414" y="0" width="138" height="20" uuid="46cdca29-0709-4f90-94c8-227f765e8577"/>
-				<text><![CDATA[coche_color]]></text>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+					<topPen lineWidth="2.0" lineStyle="Double"/>
+					<leftPen lineWidth="2.0" lineStyle="Double"/>
+					<bottomPen lineWidth="2.0" lineStyle="Double"/>
+					<rightPen lineWidth="2.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Color]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="36" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="138" height="20" uuid="9721d3e1-cbb6-4034-bf53-9c18ca4f4cfe"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{coche_matricula}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="138" y="0" width="138" height="20" uuid="f92b6d7c-56af-4f60-aa3a-7b1ea3d8b1a0"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{coche_marca}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="276" y="0" width="138" height="20" uuid="1e2a84f1-8389-4f2a-9aef-07aa75644fab"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{coche_modelo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="414" y="0" width="138" height="20" uuid="b7b700ab-2de0-439d-87ea-b2e6cdae6aed"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{coche_color}]]></textFieldExpression>
 			</textField>
 		</band>
